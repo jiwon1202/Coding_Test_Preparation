@@ -13,7 +13,7 @@ public class q8 {
 		}
 		
 		// 카운트 값이 홀수인 key가 1개 이하면 그냥 문자열 길이 그대로가 답이다.
-		// 2개 이상이면 (홀수 개수 - 1) 빼줘야한다.
+		// 2개 이상이면 (홀수 개수 - 1) 빼줌
 		int cnt = 0;
 		for(char key : map.keySet()) {
 			if (map.get(key) % 2 == 1)

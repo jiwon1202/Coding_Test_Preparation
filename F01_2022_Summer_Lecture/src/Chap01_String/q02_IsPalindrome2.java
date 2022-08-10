@@ -9,7 +9,7 @@ public class q02_IsPalindrome2 {
 		// 판별을 위해 모두 대문자로 바꿔줌
 		s = s.toUpperCase();
 		
-		// 양 끝쪽 문자를 가리키는 포인터 두 개 선언
+		// 양 끝쪽 문자를 가리키는 포인터 두 개 선언 
 		int right = s.length()-1;
 		int left = 0;
 		

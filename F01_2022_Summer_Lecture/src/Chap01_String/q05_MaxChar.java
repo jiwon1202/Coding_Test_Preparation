@@ -1,24 +1,26 @@
-package hi;
+package Chap01_String;
 
 import java.util.*;
 
-public class q5 {
+public class q05_MaxChar {
 	public char solution(String s) {
 		char answer = ' ';
 		
-		// !! HashMap Áß¿ä! !!
+		// HashMap ê°ì²´ ì„ ì–¸
+		// Mapì˜ ì¼ì¢…ìœ¼ë¡œ, keyì™€ valueì˜ ìŒìœ¼ë¡œ ì´ë£¨ì–´ì§„ ë°ì´í„°ë¥¼ ë³´ê´€í•˜ëŠ”ë° ì‚¬ìš©ë¨
 		HashMap<Character, Integer> map = new HashMap<>();
 		
-		// toCharArray() -> sÀÇ ¹®ÀÚ ÇÏ³ªÇÏ³ª¸¦ »Ì¾Æ³¿
 		for(char x : s.toCharArray()) {
-			// getOrDefault -> Å°°¡ xÀÎ value¸¦ °¡Á®¿Í¼­ +1 ÇÑ °ªÀ¸·Î value ´ëÃ¼
-			// 				   but Å°°ªÀÌ ¾ø´Ù¸é value¸¦ 0À¸·Î ¼³Á¤ÇÏ¿© »ğÀÔ
+			// getOrDefault(): ì£¼ì–´ì§„ keyê°€ ì¡´ì¬í•œë‹¤ë©´ valueë¥¼ ê°€ì ¸ì˜´ (get)
+			//							  ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´ ë§¤ê°œë³€ìˆ˜ ê°’ ë°˜í™˜ (default)
+			// put(): keyì™€ valueìŒìœ¼ë¡œ ê°’ì„ ì €ì¥
 			map.put(x,  map.getOrDefault(x, 0) + 1);
 		}
 		
-		// max °ªÀ» °¡Àå ÀÛÀº Á¤¼ö°ªÀ¸·Î ÃÊ±âÈ­ -> ¸Å¿ì ¾ÈÁ¤ÀûÀÌ¹Ç·Î!
 		int max = Integer.MIN_VALUE;
-		// keySet -> map¿¡ Á¸ÀçÇÏ´Â keyµé ÇÏ³ªÇÏ³ª »Ì¾Æ³»¼­ max°ª Å½»ö
+
+		// keySet(): ì£¼ì–´ì§„ HashMap ê°ì²´ì˜ key ê°’ë“¤ë§Œ êº¼ë‚´ì˜´
+		// get(): í•´ë‹¹ keyê°’ì˜ valueë¥¼ ë°˜í™˜
 		for(char key : map.keySet()) {
 			if (map.get(key) > max) {
 				max = map.get(key);
@@ -28,7 +30,7 @@ public class q5 {
 		return answer;
 	}
 	public static void main(String[] args) {
-		q5 T = new q5();
+		q05_MaxChar T = new q05_MaxChar();
 		System.out.println(T.solution("BACBACCACCBDEDE"));
 		System.out.println(T.solution("AAAAABBCCDDDD"));
 	}

@@ -1,9 +1,10 @@
-package hi;
+package Chap01_String;
 
 import java.util.*;
 
-public class q4 {
-	public Boolean isPalindrome(String s) {	// È¸¹® ÆÇº° ÇÔ¼ö
+public class q04_AppliedPalindrome {
+	// ì£¼ì–´ì§„ ë¬¸ìì—´ì´ íšŒë¬¸ì¸ì§€ íŒë³„í•˜ëŠ” í•¨ìˆ˜
+	public Boolean isPalindrome(String s) {
 		s = s.toUpperCase();
 		
 		int left = 0;
@@ -22,27 +23,29 @@ public class q4 {
 		int right = s.length() - 1;
 		
 		while (left < right) {
-			// ¿øº» ¹®ÀÚ¿­ ±× ÀÚÃ¼°¡ È¸¹®ÀÎ °æ¿ì if¹® ÁøÀÔ X
 			if (s.charAt(left) != s.charAt(right)) {
-				// È¸¹®ÀÌ ¾Æ´Ñ °æ¿ì ¾ç ³¡ ¹®ÀÚ¸¦ ÇÏ³ª¾¿ »« ¹®ÀÚ¿­ »ı¼º ÈÄ È¸¹®ÀÎÁö ÆÇº°
+				// substring(s,e): s ~ e-1 ì¸ë±ìŠ¤ ê¹Œì§€ì˜ ë¬¸ìì—´ì„ ì¶”ì¶œí•˜ëŠ” í•¨ìˆ˜
+				// s1: í˜„ì¬ ì˜¤ë¥¸ìª½ í¬ì¸í„°ê°€ ê°€ë¦¬í‚¤ëŠ” ë¬¸ì ì œê±°
+				// s2: í˜„ì¬ ì™¼ìª½ í¬ì¸í„°ê°€ ê°€ë¦¬í‚¤ëŠ” ë¬¸ì ì œê±°
 				String s1 = s.substring(left, right);
 				String s2 = s.substring(left + 1, right + 1);
 				
-				// ÀÚ¸¥ ¹®ÀÚ¿­ Á¶Â÷ È¸¹®ÀÌ ¾Æ´Ï¶ó¸é return "NO"
+				// ìë¥¸ ë¬¸ìì—´ ë‘ ê°œ ì¤‘ì— í•˜ë‚˜ë¼ë„ íšŒë¬¸ì´ë©´ ì°¸ / ê·¸ë ‡ì§€ ì•Šë‹¤ë©´ ê±°ì§“
 				if (!isPalindrome(s1) && !isPalindrome(s2))
 					return "NO";
 				else
-					break;	// !! ºÒÇÊ¿äÇÑ ¹İº¹À» ÁÙÀÌ±â À§ÇÏ¿© Ãß°¡ -> ¾ø¾îµµ °á°ú´Â Àß ³ª¿È !!
+					break;
 			}
 			else {
 				left++;
 				right--;
 			}
 		}
-		return "YES";	// !! answer ¾ø¾Ö°í "YES" ÀÎ °ÍÀÌ ´õ ÁÁÀ»±î? -> »ó°ü ¾ø´Ù. !!
+		// ì›ë³¸ ë¬¸ìì—´ ê·¸ëŒ€ë¡œ íšŒë¬¸ì¸ ê²½ìš° ì´ ì¤„ê¹Œì§€ ë‚´ë ¤ì˜´
+		return "YES";
 	}
 	public static void main(String[] args) {
-		q4 T = new q4();
+		q04_AppliedPalindrome T = new q04_AppliedPalindrome();
 		System.out.println(T.solution("abcddcba"));
 		System.out.println(T.solution("abcabbakcba"));
 		System.out.println(T.solution("abcacbakcba"));

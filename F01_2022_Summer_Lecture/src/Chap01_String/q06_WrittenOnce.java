@@ -1,9 +1,9 @@
-package hi;
+package Chap01_String;
 
 import java.util.HashMap;
 
-public class q6 {
-	public int solution(String s) {	
+public class q06_WrittenOnce {
+	public int solution(String s) {
 		HashMap<Character, Integer> map = new HashMap<>();
 		
 		for(char x : s.toCharArray()) {
@@ -15,20 +15,9 @@ public class q6 {
 				return i + 1;
 		}
 		return -1;
-		
-		/* 내코드 - 해쉬맵에 문자 순서대로 저장되기 때문에 개수가 한 개인 문자를 찾으면 바로 인덱스 저장 후 break
-		int answer = -1;
-		for(char key : map.keySet()) {
-			if (map.get(key) == 1) {
-				answer = s.indexOf(key) + 1;
-				break;
-			}
-		}
-		return answer;
-		*/
 	}
 	public static void main(String[] args) {
-		q6 T = new q6();
+		q06_WrittenOnce T = new q06_WrittenOnce();
 		System.out.println(T.solution("statitsics"));
 		System.out.println(T.solution("aabb"));
 		System.out.println(T.solution("stringshowtime"));

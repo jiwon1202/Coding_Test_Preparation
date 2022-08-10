@@ -18,7 +18,7 @@ public class q01_StrCompression {
 				answer += s.charAt(i);
 				if (cnt > 1)
 					answer += cnt;
-				cnt = 1;
+				cnt = 1; 
 			}
 		}
 		return answer;

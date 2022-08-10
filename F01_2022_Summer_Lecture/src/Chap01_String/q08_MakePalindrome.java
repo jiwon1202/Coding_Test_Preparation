@@ -1,8 +1,8 @@
-package hi;
+package Chap01_String;
 
 import java.util.*;
 
-public class q8 {
+public class q08_MakePalindrome {
 	public int solution(String s){
 		int answer = s.length();
 		
@@ -12,18 +12,20 @@ public class q8 {
 			map.put(x, map.getOrDefault(x, 0) + 1);
 		}
 		
-		// Ä«¿îÆ® °ªÀÌ È¦¼öÀÎ key°¡ 1°³ ÀÌÇÏ¸é ±×³É ¹®ÀÚ¿­ ±æÀÌ ±×´ë·Î°¡ ´äÀÌ´Ù.
-		// 2°³ ÀÌ»óÀÌ¸é (È¦¼ö °³¼ö - 1) »©ÁÜ
+		// í™€ìˆ˜ê°œì˜ ë¬¸ìžì˜ ê°œìˆ˜ë¥¼ ì¹´ìš´íŒ…
 		int cnt = 0;
 		for(char key : map.keySet()) {
 			if (map.get(key) % 2 == 1)
 				cnt++;
 		}
 		
+		// ëª¨ë“  ë¬¸ìžê°€ ì§ìˆ˜ê°œ ì´ê±°ë‚˜(1), í•˜ë‚˜ì˜ ë¬¸ìžë§Œ í™€ìˆ˜ê°œ(2)ì—¬ë„ íšŒë¬¸ì„ ë§Œë“¤ ìˆ˜ ìžˆë‹¤.
+		// (1) cnt == 0 ì´ë©´, answer ë°˜í™˜
+		// (2) answerì—ì„œ cntë¥¼ ë¹¼ì¤€ í›„ ë‹¤ì‹œ 1ì„ ë”í•˜ì—¬ ë°˜í™˜
 		return cnt > 0 ? answer-(cnt-1) : answer;
 	}
 	public static void main(String[] args) {
-		q8 T = new q8();
+		q08_MakePalindrome T = new q08_MakePalindrome();
 		System.out.println(T.solution("abcbbbccaa"));
 		System.out.println(T.solution("abcde"));
 		System.out.println(T.solution("ccc"));

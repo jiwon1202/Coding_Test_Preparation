@@ -1,8 +1,6 @@
 package Chap02_Array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class q04_MaximumBitonic {
 	public int Solution(int[] nums) {

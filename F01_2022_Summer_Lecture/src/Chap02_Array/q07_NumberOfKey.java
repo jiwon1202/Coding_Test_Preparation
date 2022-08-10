@@ -1,16 +1,14 @@
-package main1;
+package Chap02_Array;
 
-import java.util.*;
-
-public class q2_7 {
+public class q07_NumberOfKey {
 	public int Solution(String s, int limit) {
 		int[] used = new int[27];
 		for(int x : s.toCharArray()) {
-			if (x >= 97 && x <= 122) {
+			if ((97 <= x) && (x <= 122)) {
 				used[x-97] = 1;
 			}
-			else if (x>= 65 && x <= 90) {
-				used[26] = 1;
+			else if ((65 <= x) && (x <= 90)) {
+				used[26] = 1;	// 대문자를 만들기 위한 쉬프트 키도 카운팅
 				used[x-65] = 1;
 			}
 		}
@@ -25,16 +23,11 @@ public class q2_7 {
 		else
 			return -1;
 	}
-	
 	public static void main(String[] args) {
-		q2_7 T = new q2_7();
-		String s1 = "time to time";
-		System.out.println(T.Solution(s1, 5));
-		String s2 = "time to study";
-		System.out.println(T.Solution(s2, 7));
-		String s3 = "Big life is Good";
-		System.out.println(T.Solution(s3, 10));
-		String s4 = "Life is Good";
-		System.out.println(T.Solution(s4, 7));
+		q07_NumberOfKey T = new q07_NumberOfKey();
+		System.out.println(T.Solution("time to time", 5));
+		System.out.println(T.Solution("time to study", 7));
+		System.out.println(T.Solution("Big life is Good", 10));
+		System.out.println(T.Solution("Life is Good", 7));
 	}
 }

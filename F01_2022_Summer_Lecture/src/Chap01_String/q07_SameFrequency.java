@@ -1,9 +1,11 @@
-package hi;
+package Chap01_String;
 
 import java.util.*;
 
-public class q7 {
+public class q07_SameFrequency {
 	public ArrayList<Integer> solution(String s){
+		// ArrayList ê°ì²´ ì„ ì–¸
+		// í¬ê¸° ì¡°ì •ì´ ê°€ëŠ¥í•œ ë°°ì—´ë¡œ, ì—¬ëŸ¬ ë°ì´í„° ìœ í˜• ì €ì¥ ê°€ëŠ¥
 		ArrayList<Integer> answer = new ArrayList<>();
 		HashMap<Character, Integer> map = new HashMap<>();
 		
@@ -17,18 +19,17 @@ public class q7 {
 				max = map.get(key);
 		}
 		
-		// Æ¯Á¤ ¹®ÀÚ°¡ Á¸ÀçÇÏÁö ¾Ê´Â ÀÔ·ÂÀ» ´ëºñÇÏ¿© tmp ¼±¾ğ
+		// í˜„ì¬ maxê°’ì—” ê°€ì¥ ë¹ˆë„ìˆ˜ê°€ ë†’ì€ ë¬¸ìì˜ ê°œìˆ˜ê°€ ì €ì¥ë˜ì–´ ìˆë‹¤.
+		// max - (a, b, c ê°ê°ì˜ value) ê°’ì´ answerì— ìˆœì„œëŒ€ë¡œ ì €ì¥ë¨
 		String tmp = "abc";
-		// keySetÀ» ¾²¸é Á¸ÀçÇÏÁö ¾Ê´Â ¹®ÀÚ´Â °è»êÀ» ÇÏÁö ¸øÇÔ -> toCharArray ÇÔ¼ö »ç¿ë
 		for(char x : tmp.toCharArray()){
-			// ²À getOrDefault ÇÔ¼ö¸¦ »ç¿ëÇÏµµ·Ï ÇÏÀÚ
 			answer.add(max - map.getOrDefault(x, 0));
 		}		
 		
 		return answer;
 	}
 	public static void main(String[] args) {
-		q7 T = new q7();
+		q07_SameFrequency T = new q07_SameFrequency();
 		System.out.println(T.solution("aaabc"));
 		System.out.println(T.solution("aabb"));
 		System.out.println(T.solution("abc"));

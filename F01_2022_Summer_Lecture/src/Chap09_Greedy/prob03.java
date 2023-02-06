@@ -4,35 +4,40 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class Time implements Comparable<Time>{
-    public int time;
-	public char state;
-	
-    Time(int time, char state) {
-        this.time = time;
-        this.state = state;
-    }
-    
-    @Override
-    public int compareTo(Time ob){
-        if(this.time==ob.time)
-        	return this.state-ob.state;
-		else
-			return this.time-ob.time;
-    }
+class Time implements Comparable<Time> {
+	int time;
+	Character state;
+	public Time(int s, Character state) {
+		this.time = s;
+		this.state = state;
+	}
+	@Override
+	public int compareTo(Time o) {
+		if (this.time == o.time) {
+			return this.state - o.state;
+		}
+		else {
+			return this.time - o.time;
+		}
+	}
 }
 
 public class prob03 {
-	public int solution(ArrayList<Time> arr){
-		int answer=Integer.MIN_VALUE;
-		Collections.sort(arr);
+	public int solution(int n, ArrayList<Time> arr) {
+		int answer= 0;
+		int cnt = 0;
 		
-		int cnt=0;
-		for(Time ob : arr){
-			if(ob.state=='s') cnt++;
-			else cnt--;
-			answer=Math.max(answer, cnt);
+		Collections.sort(arr);
+		for (Time x : arr) {
+			if(x.state == 'e') {
+				cnt--;
+			}
+			else {
+				cnt++;
+			}
+			answer = Math.max(answer, cnt);
 		}
+		
 		return answer;
 	}
 
@@ -40,16 +45,16 @@ public class prob03 {
 		prob03 T = new prob03();
 		Scanner kb = new Scanner(System.in);
 		
-		int n=kb.nextInt();
+		int n = kb.nextInt();
 		ArrayList<Time> arr = new ArrayList<>();
-		for(int i=0; i<n; i++){
-			int sT=kb.nextInt();
-			int eT=kb.nextInt();
-			arr.add(new Time(sT, 's'));
-			arr.add(new Time(eT, 'e'));
+		for(int i=0; i<n; i++) {
+			arr.add(new Time(kb.nextInt(), 's'));
+			arr.add(new Time(kb.nextInt(), 'e'));
 		}
+
+		Collections.sort(arr);
 		
-		System.out.println(T.solution(arr));
+		System.out.println(T.solution(n, arr));
 	}
 
 }
